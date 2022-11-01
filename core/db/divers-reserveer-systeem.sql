@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 18 okt 2022 om 11:18
+-- Gegenereerd op: 01 nov 2022 om 10:18
 -- Serverversie: 10.4.21-MariaDB
 -- PHP-versie: 7.4.23
 
@@ -24,85 +24,50 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `account`
+-- Tabelstructuur voor tabel `reservations`
 --
 
-CREATE TABLE `account` (
-  `id` int(11) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `isAdmin` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `lokalen`
---
-
-CREATE TABLE `lokalen` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
+CREATE TABLE `reservations` (
+  `res_id` int(11) NOT NULL,
+  `res_date` date DEFAULT NULL,
+  `res_slot` varchar(32) DEFAULT NULL,
+  `res_name` varchar(255) NOT NULL,
+  `res_room` varchar(255) NOT NULL,
+  `res_tel` varchar(60) NOT NULL,
+  `res_notes` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabelstructuur voor tabel `reservaties`
+-- Gegevens worden geëxporteerd voor tabel `reservations`
 --
 
-CREATE TABLE `reservaties` (
-  `id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time_start` time NOT NULL,
-  `time_end` time NOT NULL,
-  `name` varchar(99) NOT NULL,
-  `lokaal` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `reservations` (`res_id`, `res_date`, `res_slot`, `res_name`, `res_room`, `res_tel`, `res_notes`) VALUES
+
 
 --
 -- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexen voor tabel `account`
+-- Indexen voor tabel `reservations`
 --
-ALTER TABLE `account`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexen voor tabel `lokalen`
---
-ALTER TABLE `lokalen`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexen voor tabel `reservaties`
---
-ALTER TABLE `reservaties`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `reservations`
+  ADD PRIMARY KEY (`res_id`),
+  ADD KEY `res_date` (`res_date`),
+  ADD KEY `res_slot` (`res_slot`),
+  ADD KEY `res_name` (`res_name`),
+  ADD KEY `res_email` (`res_room`),
+  ADD KEY `res_tel` (`res_tel`);
 
 --
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT voor een tabel `account`
+-- AUTO_INCREMENT voor een tabel `reservations`
 --
-ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT voor een tabel `lokalen`
---
-ALTER TABLE `lokalen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT voor een tabel `reservaties`
---
-ALTER TABLE `reservaties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=629;
+ALTER TABLE `reservations`
+  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
