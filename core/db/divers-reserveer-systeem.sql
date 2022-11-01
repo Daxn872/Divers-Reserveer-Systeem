@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 01 nov 2022 om 10:18
+-- Gegenereerd op: 01 nov 2022 om 10:34
 -- Serverversie: 10.4.21-MariaDB
 -- PHP-versie: 7.4.23
 
@@ -42,7 +42,26 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`res_id`, `res_date`, `res_slot`, `res_name`, `res_room`, `res_tel`, `res_notes`) VALUES
-
+(1, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(2, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(3, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(4, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(5, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(6, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(7, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(8, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(9, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(10, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(11, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
+(12, '2022-11-03', '', 'Daan', 'daxn872@gmail.com', '210713', 'geen'),
+(13, '2022-11-03', '', 'Daan', 'daxn872@gmail.com', '210713', 'geen'),
+(14, '2022-11-02', '', 'Daan', '', '210713', 'geen'),
+(15, '2022-11-02', '', 'Daan', '', '210713', 'geen'),
+(16, '2022-11-02', '', 'daan', 'w003', '06', 'geen'),
+(17, '2022-11-02', '', 'daan', 'w003', '06', 'geen'),
+(18, '2022-11-02', '', 'daan', 'w003', '06', 'geen'),
+(19, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd'),
+(20, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -67,7 +86,7 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT voor een tabel `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

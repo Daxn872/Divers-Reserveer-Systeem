@@ -63,7 +63,7 @@ class Reservation {
     return $this->stmt->fetchAll();
   }
 }
-
+// (E) DATABASE CONNECTION
 include "core/db/db_con.php";
 
 // (F) NEW RESERVATION OBJECT
