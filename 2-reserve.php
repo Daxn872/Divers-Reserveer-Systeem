@@ -23,19 +23,19 @@ class Reservation {
   }
 
   // (C) SAVE RESERVATION
-  function save ($date, $slot, $name, $room, $tel, $notes="") {
+  function save ($date, $time, $name, $room, $tel, $notes="") {
     // (C1) CHECKS & RESTRICTIONS
     // @TODO - ADD YOUR OWN RULES & REGULATIONS HERE
     // MAX # OF RESERVATIONS ALLOWED?
     // USER CAN ONLY BOOK X DAYS IN ADVANCE?
-    // USER CAN ONLY BOOK A MAX OF X SLOTS WITHIN Y DAYS?
+    // USER CAN ONLY BOOK A MAX OF X TIME WITHIN Y DAYS?
 
     // (C2) DATABASE ENTRY
     try {
       $this->stmt = $this->pdo->prepare(
-        "INSERT INTO `reservations` (`res_date`, `res_slot`, `res_name`, `res_room`, `res_tel`, `res_notes`) VALUES (?,?,?,?,?,?)"
+        "INSERT INTO `reservations` (`res_date`, `res_time`, `res_name`, `res_room`, `res_tel`, `res_notes`) VALUES (?,?,?,?,?,?)"
       );
-      $this->stmt->execute([$date, $slot, $name, $room, $tel, $notes]);
+      $this->stmt->execute([$date, $time, $name, $room, $tel, $notes]);
     } catch (Exception $ex) {
       $this->error = $ex->getMessage();
       return false;

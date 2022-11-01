@@ -11,7 +11,7 @@
     if (isset($_POST["date"])) {
       require "2-reserve.php";
       if ($_RSV->save(
-        $_POST["date"], $_POST["slot"], $_POST["name"],
+        $_POST["date"], $_POST["time"], $_POST["name"],
         $_POST["room"], $_POST["tel"], $_POST["notes"])) {
         echo "<div class='ok'>Reservering succesvol opgeslagen! Dankjewel :).</div>";
       } else { echo "<div class='err'>".$_RSV->error."</div>"; }
@@ -54,9 +54,10 @@
       <input type="date" required id="res_date" name="date"
              min="<?=$mindate?>">
 
-      <label>Tijd van het reserveren.</label>
-      <select name="slot">
-        <option value=""></option>
+
+      <label for="time">Kies je tijd van de reservering.</label>
+      <input type="time" id="time" name="time" min="09:00" max="17:00" required>
+      <small>Lokalen kun je reserveren van 09:00 tot 17:00 uur.</small>
 
       </select>
 

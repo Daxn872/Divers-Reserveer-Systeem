@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 01 nov 2022 om 10:34
+-- Gegenereerd op: 01 nov 2022 om 10:43
 -- Serverversie: 10.4.21-MariaDB
 -- PHP-versie: 7.4.23
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `reservations` (
   `res_id` int(11) NOT NULL,
   `res_date` date DEFAULT NULL,
-  `res_slot` varchar(32) DEFAULT NULL,
+  `res_time` varchar(32) DEFAULT NULL,
   `res_name` varchar(255) NOT NULL,
   `res_room` varchar(255) NOT NULL,
   `res_tel` varchar(60) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `reservations` (
 -- Gegevens worden geëxporteerd voor tabel `reservations`
 --
 
-INSERT INTO `reservations` (`res_id`, `res_date`, `res_slot`, `res_name`, `res_room`, `res_tel`, `res_notes`) VALUES
+INSERT INTO `reservations` (`res_id`, `res_date`, `res_time`, `res_name`, `res_room`, `res_tel`, `res_notes`) VALUES
 (1, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
 (2, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
 (3, '2022-11-01', 'PM', 'daan', 'daan@wevers.com', '123456789', 'Testing'),
@@ -61,7 +61,12 @@ INSERT INTO `reservations` (`res_id`, `res_date`, `res_slot`, `res_name`, `res_r
 (17, '2022-11-02', '', 'daan', 'w003', '06', 'geen'),
 (18, '2022-11-02', '', 'daan', 'w003', '06', 'geen'),
 (19, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd'),
-(20, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd');
+(20, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd'),
+(21, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd'),
+(22, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd'),
+(23, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd'),
+(24, '2022-11-02', '', 'dddd', 'w001', 'ddd', 'ddd'),
+(25, '2022-11-03', '11:40', 'Daan', 'w001', '06', '');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -73,7 +78,7 @@ INSERT INTO `reservations` (`res_id`, `res_date`, `res_slot`, `res_name`, `res_r
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`res_id`),
   ADD KEY `res_date` (`res_date`),
-  ADD KEY `res_slot` (`res_slot`),
+  ADD KEY `res_slot` (`res_time`),
   ADD KEY `res_name` (`res_name`),
   ADD KEY `res_email` (`res_room`),
   ADD KEY `res_tel` (`res_tel`);
@@ -86,7 +91,7 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT voor een tabel `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
