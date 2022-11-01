@@ -64,12 +64,7 @@ class Reservation {
   }
 }
 
-// (E) DATABASE SETTINGS - CHANGE THESE TO YOUR OWN!
-define("DB_HOST", "localhost");
-define("DB_NAME", "divers-reserveer-systeem");
-define("DB_CHARSET", "utf8");
-define("DB_USER", "root");
-define("DB_PASSWORD", "");
+include "core/db/db_con.php";
 
 // (F) NEW RESERVATION OBJECT
 $_RSV = new Reservation();

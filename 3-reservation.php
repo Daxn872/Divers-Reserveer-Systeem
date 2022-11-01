@@ -12,7 +12,7 @@
       require "2-reserve.php";
       if ($_RSV->save(
         $_POST["date"], $_POST["slot"], $_POST["name"],
-        $_POST[""], $_POST["tel"], $_POST["notes"])) {
+        $_POST["room"], $_POST["tel"], $_POST["notes"])) {
         echo "<div class='ok'>Reservering succesvol opgeslagen! Dankjewel :).</div>";
       } else { echo "<div class='err'>".$_RSV->error."</div>"; }
     }
@@ -25,7 +25,7 @@
       <input type="text" required name="name" value=""/>
 
       <label for="res_room">lokaal</label>
-      <select id="room">
+      <select id="room" name="room">
       <option value="w001">w001</option>
       <option value="w002">w002</option>
       <option value="w003">w003</option>
@@ -57,7 +57,7 @@
       <label>Tijd van het reserveren.</label>
       <select name="slot">
         <option value=""></option>
-        <option value=""></option>
+
       </select>
 
       <input type="submit" value="Submit"/>
