@@ -1,6 +1,14 @@
 <?php
-define("DB_HOST", "localhost");
-define("DB_NAME", "divers-reserveer-systeem");
-define("DB_CHARSET", "utf8");
-define("DB_USER", "root");
-define("DB_PASSWORD", "");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbName = "divers-reserveer-systeem";
+
+try {
+  $dsn = "mysql:host=$servername;dbname=$dbName";
+  // set the PDO error mode to exception
+  $pdo = new PDO($dsn, $username, $password);
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+?>

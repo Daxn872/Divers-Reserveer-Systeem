@@ -1,26 +1,32 @@
+<?php 
+  include './core/db/db_con.php';
+
+  $status = "";
+  if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $room = $_POST['room'];
+    $tel = $_POST['tel'];
+    $notes = $_POST['notes'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+
+    $sql = "INSERT INTO reservations (`res_name`, `res_room`, `res_tel`, `res_notes`, `res_date`, `res_time`) VALUES ('$name', '$room', '$tel', '$notes', '$date', '$time');";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['name' => $name, 'room' => $room, 'tel' => $tel, 'notes' => $notes, 'date' => $date, 'time' => $time]);
+  }
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Divers-reserveer-systeem</title>
     <link href="3-theme.cs" rel="stylesheet">
-    </script>
   </head>
   <body>
-    <?php
-    // (A) PROCESS RESERVATION
-    if (isset($_POST["date"])) {
-      require "2-reserve.php";
-      if ($_RSV->save(
-        $_POST["date"], $_POST["time"], $_POST["name"],
-        $_POST["room"], $_POST["tel"], $_POST["notes"])) {
-        echo "<div class='ok'>Reservering succesvol opgeslagen! Dankjewel :).</div>";
-      } else { echo "<div class='err'>".$_RSV->error."</div>"; }
-    }
-    ?>
-
     <!-- (B) RESERVATION FORM -->
     <h1>Reservering</h1>
-    <form id="resForm" method="post" target="_self">
+    <form id="resForm" method="POST">
       <label for="res_name">Naam</label>
       <input type="text" required name="name" value=""/>
 
